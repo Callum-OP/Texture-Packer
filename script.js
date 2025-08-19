@@ -9,18 +9,25 @@ document.getElementById('packBtn').addEventListener('click', async () => {
   document.getElementById('output').innerHTML = '';
   document.getElementById('output').appendChild(canvas);
 
+  // Clear output
+  const output = document.getElementById('output');
+  output.innerHTML = '';
+
+  // Create download links container
+  const linkContainer = document.createElement('div');
+  linkContainer.id = 'downloadLinks';
+  output.appendChild(linkContainer); 
+
   // Download canvas as PNG
   const link = document.createElement('a');
   link.download = 'spritesheet.png';
   link.href = canvas.toDataURL();
   link.textContent = 'Download Spritesheet';
   link.style.display = 'block';
-  output.appendChild(link);
+  linkContainer.appendChild(link); // Append to links container
 
-  // Format metadata, should work with my spritesheet reader
-  const jsonData = {
-    frames: {}
-  };
+  // Format metadata
+  const jsonData = { frames: {} };
   metadata.forEach(({ name, x, y, width, height }) => {
     jsonData.frames[name] = {
       frame: { x, y, w: width, h: height }
@@ -34,7 +41,10 @@ document.getElementById('packBtn').addEventListener('click', async () => {
   jsonLink.href = URL.createObjectURL(jsonBlob);
   jsonLink.textContent = 'Download JSON Metadata';
   jsonLink.style.display = 'block';
-  output.appendChild(jsonLink);
+  linkContainer.appendChild(jsonLink); // Append to links container
+
+  // Show canvas below links
+  output.appendChild(canvas);
 });
 
 // Function to get the details of image
