@@ -1,17 +1,17 @@
-document.getElementById('packBtn').addEventListener('click', async () => {
+document.getElementById('fileInput').addEventListener('change', async (event) => {
   // Get files
-  const files = document.getElementById('fileInput').files;
-  if (!files.length) return alert('Please select images first.');
+  const files = event.target.files;
+  if (!files.length) return;
   const images = await Promise.all([...files].map(loadImage));
   const { canvas, metadata } = packImages(images);
-
-  // Show canvas
-  document.getElementById('output').innerHTML = '';
-  document.getElementById('output').appendChild(canvas);
 
   // Clear output
   const output = document.getElementById('output');
   output.innerHTML = '';
+
+  // Show canvas
+  document.getElementById('output').innerHTML = '';
+  document.getElementById('output').appendChild(canvas);
 
   // Create download links container
   const linkContainer = document.createElement('div');
