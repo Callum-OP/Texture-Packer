@@ -57,7 +57,7 @@ function loadImage(file) {
 }
 
 // Function to combine the images into a spritesheet/atlas
-function packImages(images, canvasSize = 4096) {
+function packImages(images, canvasSize = 8192) {
   const canvas = document.createElement('canvas');
   canvas.width = canvasSize;
   canvas.height = canvasSize;
