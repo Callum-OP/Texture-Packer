@@ -66,13 +66,10 @@ function packImages(images, canvasSize = 4096) {
       alert('Canvas size too big! Try fewer or smaller images.');
       break;
     }
-
     ctx.drawImage(img, x, y, width, height);
     metadata.push({ name, x, y, width, height });
-
     x += width;
     rowHeight = Math.max(rowHeight, height);
   }
-
   return { canvas, metadata };
 }
