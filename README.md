@@ -1,6 +1,11 @@
 # How to run
-Just open the site on the index page (https://callum-op.github.io/Texture-Packer/) and enter your desired files, it will automatically create a spritesheet, 
-then click the link to download the image of JSON data file.
+You can use Texture Packer directly in your browser:
+
+- [Try on GitHub Pages](https://callum-op.github.io/Texture-Packer/)
+- [Try on Itch.io](https://callum-op.itch.io/texture-packer)
+
+Simply upload your image files, and the tool will automatically generate a spritesheet.  
+Once complete, you can download both the spritesheet image and a JSON data file containing texture coordinates.
 
 # About the app
 I made this to easily create spritesheets when needed.
